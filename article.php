@@ -1,9 +1,7 @@
 <?php 
 	require 'functions.php';
 	$conn = connect($config);
-
 	$article_id = $_GET['id'];
-	
 	$post = query("SELECT * FROM posts WHERE id = :id", array('id' =>  $article_id ),$conn);	
 ?>
 <!DOCTYPE html>
