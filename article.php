@@ -3,6 +3,9 @@
 	$conn = connect($config);
 	$article_id = $_GET['id'];
 	$post = query("SELECT * FROM posts WHERE id = :id", array('id' =>  $article_id ),$conn);	
+	
+	$comments = query("SELECT * FROM comments where post_id = :id", array('id' => 10),$conn);
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,13 +18,44 @@
 <body>
 
 	<div class="container">
-		
 		<div class="jumbotron">
 		  <h1><?php echo $post[0]['title']; ?></h1>
 		  <p><?php echo $post[0]['full']; ?></p>
 		</div>
-
 	</div>
+
+	<?php foreach ($comments as $comment): ?>
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<?php echo $comment['body']; ?>
+		 		</div>
+			</div>
+	</div>
+	<?php endforeach ?>
+
+	<div class="container">
+		<form class="form-horizontal" role="form" method="post" action="commenter.php">
+	   		<div class="form-group">
+	       	<label for="body" class="col-sm-2 control-label">Write Comment</label>
+	        	<div class="col-sm-10">
+	           		<textarea type="textbox" class="form-control" id="body" name="body" value=""></textarea>
+	        	</div>
+	   		</div>
+
+	   		<input type="hidden" name="post_id" value=<?php echo $article_id; ?>>
+	   		
+	   		<div class="form-group">
+        		<div class="col-sm-10 col-sm-offset-2">
+            		<input id="submit" name="submit" type="submit" value="Post" class="btn btn-primary">
+        		</div>
+    		</div>
+    	
+    	</form>
+	</div>
+
+
+
 
 </body>
 </html>

@@ -1,8 +1,14 @@
 <?php 
 	require 'functions.php';
 	$conn = connect($config);
-	$articles = get('posts', $conn);
+	$a = get('posts', $conn);
+	$articles = [];
+	foreach ($a as $article) {
+		array_unshift($articles, $article);
+	}
+
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,16 +16,16 @@
 <body>
 	<div class="container">
 		<div class="page-header">
-  			<h1>Example Blog </h1>
+  			<h1>Example Blog   <small><a href="about.php">about</a></small> </h1>
 		</div>
 	</div>
+
 
 	<div class= "container" style = "padding:20px">
 		<div class="text-center">
   			<a href="write_post.php"><button type="button" class="btn btn-default">Write Post</button></a>
 		</div>
 	</div>
-
 
 	<div class="container">
 		<?php
