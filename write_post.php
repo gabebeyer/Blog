@@ -20,8 +20,7 @@
 	</div>
 
 	<div class="container">
-		<form class="form-horizontal" role="form" method="post" action="poster.php">
-	    	
+		<form class="form-horizontal" role="form" method="post" action="poster.php">	
 	    	<div class="form-group">
 	       	<label for="title" class="col-sm-2 control-label">title</label>
 	        	<div class="col-sm-10">

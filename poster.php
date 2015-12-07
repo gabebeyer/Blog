@@ -7,6 +7,8 @@
 	$body = $_POST["body"];
 
 	//found on stackoverflow
+	//returns first 10 words 
+	
 	$exerpt = implode(' ', array_slice(str_word_count($body, 2), 0, 10));
 
 
