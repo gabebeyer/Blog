@@ -31,12 +31,19 @@
 					<span><?php echo $comment['id']; ?></span>
 					<?php echo $comment['body']; ?>
 		 		</div>
+
+		 		<?php $id = $comment['id']; ?>
+		 		
+		 	
+		 		<img src= <?php echo "photos/" . $id; ?> >
+
+
 			</div>
 		</div>
 	<?php endforeach ?>
 
 	<div class="container">
-		<form class="form-horizontal" role="form" method="post" action="commenter.php">
+		<form class="form-horizontal" role="form" method="post" action="commenter.php" enctype='multipart/form-data'>
 	   		<div class="form-group">
 	       	<label for="body" class="col-sm-2 control-label">Write Comment</label>
 	        	<div class="col-sm-10">
@@ -45,13 +52,17 @@
 	   		</div>
 
 	   		<input type="hidden" name="post_id" value=<?php echo $article_id; ?>>
+
+	   		<input type="file" name = "image">
+
 	   		
 	   		<div class="form-group">
         		<div class="col-sm-10 col-sm-offset-2">
-            		<input id="submit" name="submit" type="submit" value="Post" class="btn btn-primary">
+            		<input id="submit" name="upload" type="submit" value="Post" class="btn btn-primary">
         		</div>
     		</div>
-    	
+
+
     	</form>
 	</div>
 
