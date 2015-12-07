@@ -6,7 +6,6 @@ $config = array(
 //nessesary functions-------------------------------
 function connect($config){
 	try {
-		//Connects to db. Expecting (id,email,password,totalscore) 
 		$conn = new PDO('mysql:host=localhost;dbname=blog', $config['username'], $config['password']);
 		//Dev only. Shows all PDO errors
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

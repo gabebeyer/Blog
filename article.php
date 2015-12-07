@@ -3,9 +3,9 @@
 	$conn = connect($config);
 	$article_id = $_GET['id'];
 	$post = query("SELECT * FROM posts WHERE id = :id", array('id' =>  $article_id ),$conn);	
+	$comments = query("SELECT * FROM comments where post_id = :id", array('id' => intval($article_id)),$conn);
 	
-	$comments = query("SELECT * FROM comments where post_id = :id", array('id' => 10),$conn);
-	
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,10 +28,11 @@
 		<div class="container">
 			<div class="panel panel-default">
 				<div class="panel-body">
+					<span><?php echo $comment['id']; ?></span>
 					<?php echo $comment['body']; ?>
 		 		</div>
 			</div>
-	</div>
+		</div>
 	<?php endforeach ?>
 
 	<div class="container">
@@ -53,9 +54,6 @@
     	
     	</form>
 	</div>
-
-
-
 
 </body>
 </html>
