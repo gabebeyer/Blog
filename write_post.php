@@ -54,7 +54,7 @@
 					<table> 
 						<div class="custom-select">
 							<select name="catagory">
-								  <option value="mu selected="selected" ">   mu   </option>
+								  <option value="mu"selected=true>   mu   </option>
 								  <option value="b">   b   </option>
 								  <option value="tech">   tech   </option>
 								  <option value="fa"> fa </option>

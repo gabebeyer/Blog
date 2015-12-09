@@ -56,9 +56,7 @@
 		<div class="container">
 			<div class="panel panel-default">
   				<div class="panel-body">
-			
 					<div class="media">
-			  			
 			  			<div class="media-right">
 			    			<a href=<?php echo "photos/" . $id; ?>>
 			    			<!-- wow -->

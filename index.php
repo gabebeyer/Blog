@@ -2,6 +2,11 @@
 	if (!isset($_GET['page'])) {
 		header('Location: index.php?page=0');    
 	}
+
+	
+
+
+
 ?>
 
 <!DOCTYPE html>
