@@ -1,3 +1,9 @@
+<?php 
+	if (!isset($_GET['page'])) {
+		header('Location: index.php?page=0');    
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,6 +16,7 @@
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	</head>
 		<body>
+
 			<?php require 'articles_display.php'; ?>
 		</body>
 </html>

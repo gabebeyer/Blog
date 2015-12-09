@@ -51,18 +51,16 @@
 	</div>
 
 
-
-
-
 	<?php foreach ($comments as $comment): ?>
 		<?php $id = $comment['id']; ?>
 		<div class="container">
 			<div class="panel panel-default">
   				<div class="panel-body">
+			
 					<div class="media">
 			  			
 			  			<div class="media-right">
-			    			<a href="#">
+			    			<a href=<?php echo "photos/" . $id; ?>>
 			    			<!-- wow -->
 						 		<?php if (file_exists("photos/" . $id)): ?>
 						 			<?php if (is_image("photos/" . $id)): ?>
