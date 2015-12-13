@@ -50,7 +50,6 @@
 		</div>
 	</div>
 
-
 	<?php foreach ($comments as $comment): ?>
 		<?php $id = $comment['id']; ?>
 		<div class="container">
@@ -83,17 +82,16 @@
 		</div>
 	<?php endforeach ?>
 
-
-
 	<div class="container">
 		<form class="form-horizontal" role="form" method="post" action="commenter.php" enctype='multipart/form-data'>
 	   	
 	   		<div class="form-group">
-	       	<label for="body" class="col-sm-2 control-label">Write Comment</label>
-	        	<div class="col-sm-10">
-	           		<textarea type="textbox" class="form-control" id="body" name="body" value=""></textarea>
-	        	</div>
+	       		<label for="body" class="col-sm-2 control-label">Write Comment</label>
+		        	<div class="col-sm-10">
+		           		<textarea type="textbox" class="form-control" id="body" name="body" value=""></textarea>
+		        	</div>
 	   		</div>
+
 	   		<input type="hidden" name="post_id" value=<?php echo $article_id; ?>>
 
     		<div class="form-group">
