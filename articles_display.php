@@ -10,17 +10,15 @@
 	
 	$articles = array_chunk($articles, 10);
 
-	try {
+
+	//at what point do i decide "this is big enough for its own file"
+	//but for now...
+	if (isset($_COOKIE['user'])) {
 		$cookie = $_COOKIE['user_catagorys'];
-	} catch (Exception $e) {
-		error_log("no cookies available!", 0);
+		$cookie = stripcslashes($cookie);
+		$user_catagorys = json_decode($cookie, true);
+		$current_page = $_GET['page'];
 	}
-
-	$cookie = stripcslashes($cookie);
-	
-	$user_catagorys = json_decode($cookie, true);
-	$current_page = $_GET['page'];
-
 ?>
 <!DOCTYPE html>
 <html>
