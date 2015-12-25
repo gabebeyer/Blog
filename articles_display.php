@@ -9,10 +9,16 @@
 	}
 	
 	$articles = array_chunk($articles, 10);
-	$cookie = $_COOKIE['user_catagorys'];
-	$cookie = stripcslashes($cookie);
-	$user_catagorys = json_decode($cookie, true);
 
+	try {
+		$cookie = $_COOKIE['user_catagorys'];
+	} catch (Exception $e) {
+		error_log("no cookies available!", 0);
+	}
+
+	$cookie = stripcslashes($cookie);
+	
+	$user_catagorys = json_decode($cookie, true);
 	$current_page = $_GET['page'];
 
 ?>
@@ -33,10 +39,29 @@
   			<a href="write_post.php"><button type="button" class="btn btn-default">Write Post</button></a>
 		</div>
 	</div>
+
+	<div class="container">
+		<?php 
+
+			if (empty($user_catagorys)) {
+
+					echo    "<h1>
+								<div class = 'text-center'>
+									Your not following any boards 
+								</div>
+							</h1>";
+
+					die();
+			}
+
+		?>
+	</div>
+
+
 	<div class="container">
 		<?php
 			foreach ($articles[ $_GET['page'] ] as $article ) {  ?>
-				<?php if ( in_array($article['catagory'], $user_catagorys)): ?>
+				<?php if ( in_array($article['catagory'],$user_catagorys)): ?>
 					<div  class="panel panel-default">	  			
 			  			<div class="panel-heading">
 			    			<a href= <?php echo "http://localhost:8888/Blog/article.php?id=" . $article['id'];?>> <h3 class="panel-title"> <?php echo $article['title'];?></h3></a>

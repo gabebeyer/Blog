@@ -30,6 +30,8 @@
 	<div class="container">	
 		<div class="text-center">
 			<form action="user_prefs.php" method="post">
+
+			
 				
 				<label class="checkbox-inline">
 		  			<input type="checkbox" <?php if (in_array('mu', $user_catagorys)) {
