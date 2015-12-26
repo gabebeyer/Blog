@@ -1,7 +1,16 @@
 <?php 
-	$cookie = $_COOKIE['user_catagorys'];
-	$cookie = stripcslashes($cookie);
-	$user_catagorys = json_decode($cookie, true);
+	
+	$user_catagorys = [];
+
+	if (isset($_COOKIE)) {
+		$cookie = $_COOKIE['user_catagorys'];
+		$cookie = stripcslashes($cookie);
+
+		$user_catagorys = json_decode($cookie, true);
+	}
+
+
+
 ?>
 
 

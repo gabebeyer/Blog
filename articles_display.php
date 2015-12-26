@@ -13,7 +13,7 @@
 
 	//at what point do i decide "this is big enough for its own file"
 	//but for now...
-	if (isset($_COOKIE['user'])) {
+	if (isset($_COOKIE)) {
 		$cookie = $_COOKIE['user_catagorys'];
 		$cookie = stripcslashes($cookie);
 		$user_catagorys = json_decode($cookie, true);
